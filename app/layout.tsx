@@ -12,10 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL("https://leadgo-two.vercel.app"),
   title: "LeadGO",
   description: "Receba clientes direto no seu WhatsApp todos os dias",
-
   openGraph: {
     title: "LeadGO",
     description: "Receba clientes direto no seu WhatsApp todos os dias",
@@ -23,19 +23,36 @@ export const metadata = {
     siteName: "LeadGO",
     images: [
       {
-        url: "/preview.png", // pode trocar por outra imagem depois
+        url: "/logo.png",
         width: 1200,
         height: 630,
+        alt: "LeadGO",
       },
     ],
     locale: "pt_BR",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "LeadGO",
     description: "Receba clientes direto no seu WhatsApp todos os dias",
-    images: ["/preview.png"],
+    images: ["/logo.png"],
+  },
+  icons: {
+    icon: "/icon.png",
   },
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="pt-BR">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
+}
