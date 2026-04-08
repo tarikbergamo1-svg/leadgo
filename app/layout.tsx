@@ -12,22 +12,30 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "LeadGO",
-  description: "Clientes direto no seu WhatsApp",
-};
+  description: "Receba clientes direto no seu WhatsApp todos os dias",
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
-}
+  openGraph: {
+    title: "LeadGO",
+    description: "Receba clientes direto no seu WhatsApp todos os dias",
+    url: "https://leadgo-two.vercel.app",
+    siteName: "LeadGO",
+    images: [
+      {
+        url: "/preview.png", // pode trocar por outra imagem depois
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "LeadGO",
+    description: "Receba clientes direto no seu WhatsApp todos os dias",
+    images: ["/preview.png"],
+  },
+};
